@@ -15,8 +15,8 @@ import webbrowser
 SERVER_URL = "http://127.0.0.1:5000"
 
 # Spotify API 설정
-SPOTIPY_CLIENT_ID = '7fc3c32342aa47db9c707d8f5ea887b2'
-SPOTIPY_CLIENT_SECRET = 'c148dd42531d48cd890854549b9ecd32'
+SPOTIPY_CLIENT_ID = 'your spotify client id'
+SPOTIPY_CLIENT_SECRET = 'your spotify client secret'
 SPOTIPY_REDIRECT_URI = 'http://127.0.0.1:9090'
 
 # Spotify 인증 설정
