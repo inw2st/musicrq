@@ -14,8 +14,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # Spotify API Client ID와 Client Secret 설정
-SPOTIPY_CLIENT_ID = '7fc3c32342aa47db9c707d8f5ea887b2'
-SPOTIPY_CLIENT_SECRET = 'c148dd42531d48cd890854549b9ecd32'
+SPOTIPY_CLIENT_ID = 'your client id'
+SPOTIPY_CLIENT_SECRET = 'your client token'
 
 # Spotify 인증 설정 (Client Credentials Flow)
 client_credentials_manager = SpotifyClientCredentials(client_id=SPOTIPY_CLIENT_ID, client_secret=SPOTIPY_CLIENT_SECRET)
