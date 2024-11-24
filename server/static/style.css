@@ -1,0 +1,136 @@
+:root {
+    --primary-color: #1DB954;  /* Spotify 녹색 */
+    --dark-color: #191414;     /* Spotify 검정 */
+    --light-color: #FFFFFF;
+    --gray-color: #282828;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+#searchInput {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    width: 60%;
+    max-width: 500px;
+    background-color: var(--gray-color);
+    color: var(--light-color);
+    font-size: 16px;
+}
+
+#searchInput:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+#searchBtn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: transform 0.2s;
+}
+
+#searchBtn:hover {
+    transform: scale(1.05);
+    background-color: #1ed760;
+}
+
+#results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.song {
+    background-color: var(--gray-color);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.song:hover {
+    transform: translateY(-5px);
+}
+
+.song img {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.song h3 {
+    margin: 0;
+    color: var(--light-color);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.song p {
+    margin: 5px 0;
+    color: #b3b3b3;
+}
+
+.request-btn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.request-btn:hover {
+    transform: scale(1.05);
+    background-color: #1ed760;
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #searchInput {
+        width: 90%;
+    }
+
+    #results {
+        grid-template-columns: 1fr;
+    }
+}
