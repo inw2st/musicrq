@@ -109,7 +109,7 @@ class SongItemWidget(QFrame):
         
         layout.addStretch()
         
-        # 삭제 버튼 추가
+        # 삭제 버튼
         delete_button = QPushButton("삭제")
         delete_button.setFixedSize(50, 25)
         delete_button.setStyleSheet("""
@@ -126,7 +126,7 @@ class SongItemWidget(QFrame):
         delete_button.clicked.connect(lambda: self.delete_song(song))
         layout.addWidget(delete_button)
         
-        # 스타일시트 설정
+        # 스타일시트
         self.setStyleSheet("""
             SongItemWidget {
                 background-color: #2d2d2d;
@@ -170,7 +170,7 @@ class SongItemWidget(QFrame):
             }
         """)
         
-        # 커서 모양은 Qt 메서드로 설정
+        # Qt 메서드드
         self.setCursor(Qt.PointingHandCursor)
         
     def mousePressEvent(self, event):
@@ -190,22 +190,22 @@ class SongItemWidget(QFrame):
         
         if reply == QMessageBox.Yes:
             try:
-                # 서버에 삭제 요청
+                #서버 삭제 요청
                 response = requests.delete(f"{SERVER_URL}/requests/{song.id}")
                 
                 if response.status_code == 200:
-                    # song_checkboxes 딕셔너리에서 체크박스 제거
+                    #song_checkboxes 딕셔너리 체크박스 제거
                     main_window = self.window()
                     if hasattr(main_window, 'song_checkboxes') and song.id in main_window.song_checkboxes:
                         del main_window.song_checkboxes[song.id]
                     
-                    # 위젯 제거
+                    #위젯 제거
                     self.parent().layout().removeWidget(self)
                     self.deleteLater()
                     
                     QMessageBox.information(self, "성공", "곡이 성공적으로 삭제되었습니다.")
                     
-                    # 메인 윈도우의 새로고침 메서드 호출
+                    #메인 윈도우 새로고침 메서드 호출
                     main_window.load_song_requests()
                 else:
                     QMessageBox.critical(self, "오류", "서버에서 곡을 삭제하는데 실패했습니다.")
@@ -221,7 +221,7 @@ class MusicRequestApp(QMainWindow):
         self.selected_songs = []
         self.song_checkboxes = {}
         
-        # MusicRequestApp 클래스의 __init__ 메서드 시작 부분에 추가
+        
         dark_palette = QPalette()
         dark_palette.setColor(QPalette.Window, QColor(53, 53, 53))
         dark_palette.setColor(QPalette.WindowText, QColor(255, 255, 255))
@@ -240,7 +240,7 @@ class MusicRequestApp(QMainWindow):
         app = QApplication.instance()
         app.setPalette(dark_palette)
         
-        # 스타일 설정
+        #스타일시트트
         self.setStyleSheet("""
             QMainWindow {
                 background-color: #1e1e1e;
