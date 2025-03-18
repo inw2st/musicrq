@@ -87,7 +87,7 @@ def save_request():
         # 오늘 날짜의 시작 시간 구하기
         today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
         
-        # 같은 IP에서 오늘 이미 신청한 곡이 있는지 확인
+        # IP 요청 중복 확인
         existing_request = SongRequest.query.filter(
             SongRequest.ip_address == ip_address,
             SongRequest.created_at >= today
